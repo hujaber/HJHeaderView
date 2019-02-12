@@ -19,6 +19,13 @@ class ViewController: UIViewController {
         myView.profileImage = #imageLiteral(resourceName: "huj.jpg")
         myView.title = "Hello"
         myView.leftBarButtonTargetAction = (self, #selector(back))
+        myView.name = "Hussein Jaber"
+        myView.nickname = "iOS at Vinelab"
+        myView.nicknameColor = UIColor.init(white: 180.0/255, alpha: 0.98)
+        myView.profilePictureAlignment = .center
+        myView.rightButtonTitle = "Edit"
+        myView.profilePictureAlignment = .leading
+        myView.rightBarButtonTargetAction = (self, #selector(edit))
     }
     
     @objc func back() {
@@ -144,15 +151,15 @@ class HJHeaderView: UIView {
                 addProfileImageView()
                 addNameLabel()
                 addNicknameLabel()
-                // this is a big note, i just want to know if this shitty  thing is still working or not. f wakatime.
-                // okay. seems not working anymore. now what?
             }
         }
     }
     
     var rightButtonTitle: String? {
         didSet {
-            rightBarButton.setTitle(rightButtonTitle, for: .normal)
+            addRightBarBtn()
+            guard let rightButton = rightBarButton else { return }
+            rightButton.setTitle(rightButtonTitle, for: .normal)
         }
     }
     
@@ -188,6 +195,7 @@ class HJHeaderView: UIView {
         addNicknameLabel()
     }
     
+    @discardableResult
     convenience init(in view: UIView) {
         self.init(frame: .zero)
         let constraints = self.getConstraintsForView(view)
@@ -338,7 +346,7 @@ class HJHeaderView: UIView {
     private func addRightBarButton() {
         rightBarButton = UIButton(frame: .zero)
         rightBarButton.translatesAutoresizingMaskIntoConstraints = false
-        rightBarButton.setTitleColor(UIColor.blue, for: .normal)
+        rightBarButton.setTitleColor(UIColor.white, for: .normal)
         rightBarButton.setTitle("Edit", for: .normal)
         
         let trailing = NSLayoutConstraint(item: rightBarButton, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: -16)
