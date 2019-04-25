@@ -12,7 +12,20 @@
 		<key>HeaderView.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>4</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D70FE64C211B16DA00D2C382</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D70FE660211B16DB00D2C382</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
